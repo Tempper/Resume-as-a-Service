@@ -1,0 +1,19 @@
+{
+  "name": "resume-as-a-service",
+  "version": "1.0.0",
+  "description": "A RESTful API that serves your resume in multiple formats including JSON, HTML, Markdown, and PDF. Built to be a modular, customisable, and easy to deploy - ideal for developers who want to intergaret their resume into personal websites, applications or share it  programmatically.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.13.0",
+    "puppeteer": "^24.4.0"
+  }
+}
