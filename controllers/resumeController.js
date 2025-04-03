@@ -85,6 +85,11 @@ const getResumeHTML = async (req, res) => {
             section{
             padding-top: 1rem;
             }
+            .link-date-container{
+            display:flex;;
+            gap: 1rem;}
+
+
           </style>
 
         </head>
@@ -109,9 +114,8 @@ const getResumeHTML = async (req, res) => {
               </div>
 
               <ul id="education-list" style="margin-top: 0; padding-left: 1.2rem;">
-                <li><strong>GPA:</strong> 3.8 / 4.0 – <em></em></li>
                 <li><strong>Relevant Coursework:</strong> Web Dev, Databases, Algorithms</li>
-                <li>Study Abroad in Japan • Captain of Uni Volleyball Team</li>
+                <li></li>
               </ul>
             `).join('')}
         </section>
@@ -125,40 +129,54 @@ const getResumeHTML = async (req, res) => {
               <p id="role">${exp.role}</p>
               
               <ul>
-              <li> ${exp.description}</li>
+                ${exp.description.map(line => `<li>${line}</li>`).join('')}
               </ul>
             `).join('')}
         <section>
-          <h3 class="subheading-title"> WORK EXPERIENCE</h3>
+          <h3 class="subheading-title">PROJECTS</h3>
             ${resume.projects.map(proj => `
               <div class="experience-title-container">
               <span>${proj.title}</span>
+              <div class="link-date-container"> 
               <a href="${proj.link}"> project link</a>
+              <p>${proj.date}</p>
               </div>
-              <span>${proj.description}</span>
+              </div>
+              <ul>
+                ${proj.description.map(line => `<li>${line}</li>`).join('')}
+              </ul>
             `).join('')}
         </section>
-        <body>
 
 
-          <h3>Skills</h3>
-          <ul>
-            ${resume.skills.map(skill => `<li>${skill}</li>`).join('')}
-          </ul>
+        <section>
+          <h3 class="subheading-title">CERTIFICATIONS, SKILLS & INTERESTS</h3>
+  <ul style="margin-top: 0.5rem; padding-left: 1.2rem;">
+    ${resume.certificationsSkillsInterests?.certifications?.length ? `
+      <li>
+        <strong>Certifications:</strong> ${resume.certificationsSkillsInterests.certifications.join(', ')}
+      </li>
+    ` : ''}
 
-          <h3>Experience</h3>
-          <ul>
+    ${resume.certificationsSkillsInterests?.technologies?.length ? `
+      <li>
+        <strong>Technologies:</strong> ${resume.certificationsSkillsInterests.technologies.join(', ')}
+      </li>
+    ` : ''}
 
-          </ul>
+    ${resume.certificationsSkillsInterests?.skills?.length ? `
+      <li>
+        <strong>Skills:</strong> ${resume.certificationsSkillsInterests.skills.join('; ')}
+      </li>
+    ` : ''}
 
-          
-          <ul>
-            ${resume.education.map(edu => `
-              <li>
-                ${edu.degree}, ${edu.institution} (${edu.graduationYear})
-              </li>
-            `).join('')}
-          </ul>
+    ${resume.certificationsSkillsInterests?.interests?.length ? `
+      <li>
+        <strong>Interests:</strong> ${resume.certificationsSkillsInterests.interests.join('; ')}
+      </li>
+    ` : ''}
+  </ul>
+</section>
         </body>
       </html>
     `;
