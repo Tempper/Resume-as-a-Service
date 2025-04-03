@@ -33,7 +33,7 @@ const getResumeHTML = async (req, res) => {
             padding: 0px;
             margin: 0px;
             }
-            body { font-family: garamond; max-width: 50%; padding:21.6pt 36pt 21.6pt 36pt; }
+            body { font-family: garamond; max-width: 50%; padding:21.6pt 36pt 21.6pt 36pt; list-style-position: inside;line-height: 1.2; }
             
 
             h1{
@@ -46,6 +46,8 @@ const getResumeHTML = async (req, res) => {
             h3{
             font-size: 1rem;
             font-weight: 700;
+              letter-spacing: 0.5px;
+              margin-bottom: 0.5rem;
             }
 
             .contact-info{
@@ -88,6 +90,15 @@ const getResumeHTML = async (req, res) => {
             .link-date-container{
             display:flex;;
             gap: 1rem;}
+            section {
+            margin-bottom: 1rem;}
+            section {
+  margin-bottom: 1.25rem;
+}
+  li {
+  margin-bottom: 0.3rem;
+}
+
 
 
           </style>
@@ -97,7 +108,7 @@ const getResumeHTML = async (req, res) => {
         <header>
           <h1 >${resume.name}</h1>
           <p class="contact-info">
-          ${resume.contact.email} | ${resume.contact.phone} | <a href="${resume.contact.github}"> Github</a> | <a href="${resume.contact.linkedIn}"> linkedIn</a>
+          ${resume.contact.email} | ${resume.contact.phone} | <a href="${resume.contact.github}"> Github</a> | <a href="${resume.contact.linkedIn}"> LinkedIn</a>
           </p>
         </header>
 
@@ -113,9 +124,8 @@ const getResumeHTML = async (req, res) => {
                 ${edu.degree}
               </div>
 
-              <ul id="education-list" style="margin-top: 0; padding-left: 1.2rem;">
-                <li><strong>Relevant Coursework:</strong> Web Dev, Databases, Algorithms</li>
-                <li></li>
+              <ul id="education-list" style="margin-top: 0;">
+                <li><strong>Relevant Coursework:</strong>Data Structures, Object-Oriented Programming (C++), Intelligent Systems, Database Design,     Computer Security, Programming Languages & Paradigms</li>
               </ul>
             `).join('')}
         </section>
@@ -132,13 +142,14 @@ const getResumeHTML = async (req, res) => {
                 ${exp.description.map(line => `<li>${line}</li>`).join('')}
               </ul>
             `).join('')}
+        </section>
         <section>
           <h3 class="subheading-title">PROJECTS</h3>
             ${resume.projects.map(proj => `
               <div class="experience-title-container">
               <span>${proj.title}</span>
               <div class="link-date-container"> 
-              <a href="${proj.link}"> project link</a>
+              <a href="${proj.link}"> Live Demo</a>
               <p>${proj.date}</p>
               </div>
               </div>
