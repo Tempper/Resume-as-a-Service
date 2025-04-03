@@ -3,6 +3,7 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const Resume = require('./models/Resume');
  // const resumeRoutes = require('./routes/resumeRoutes');
+ const cors = require('cors');
 
 // load enviroment variables from .env
 dotenv.config();
@@ -12,8 +13,10 @@ connectDB();
 
 const app = express();
 
+app.use(cors());
 // middleware to parse JSON in requests
 app.use(express.json());
+
 
 // Root route
 app.get('/', (req, res) =>{
