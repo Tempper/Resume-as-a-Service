@@ -12,12 +12,12 @@ export default function Resume({ data}) {
 
   return (
     
-    <div className="max-w-3xl mx-auto p-4 font-serif text-gray-900 dark:text-gray-100 dark:bg-gray-900 leading-snug">
+    <div className="max-w-3xl mx-auto p-4 font-serif dark:text-white  dark:bg-zinc-800 leading-snug">
 
       {/* Header with name and contact info */}
       <header className="relative">
         <div className="flex justify-between items-center">
-          <h1 className="text-2xl font-bold border-b-2 border-gray-800 pb-2 mb-2">{name}</h1>
+          <h1 className="text-2xl font-bold border-b-2 border-gray-800 dark:border-gray-100 pb-2 mb-2">{name}</h1>
         </div>
         <p className="text-sm">
           {contact.email} | {contact.phone} |
@@ -28,7 +28,7 @@ export default function Resume({ data}) {
 
       {/* Education Section */}
       <section>
-        <h3 className="text-base font-bold border-y border-gray-800 py-1 mt-4">EDUCATION</h3>
+        <h3 className="text-base font-bold border-y border-gray-800 dark:border-gray-100 py-1 mt-4">EDUCATION</h3>
         <div className="flex justify-between mt-2 font-bold">
           <strong>{education[0].institution}</strong>
           <span className="italic">Expected: {education[0].graduationYear}</span>
@@ -43,7 +43,7 @@ export default function Resume({ data}) {
 
       {/* Work Experience Section */}
       <section>
-        <h3 className="text-base font-bold border-y border-gray-800 py-1 mt-4">WORK EXPERIENCE</h3>
+        <h3 className="text-base font-bold border-y border-gray-800 dark:border-gray-100 py-1 mt-4">WORK EXPERIENCE</h3>
         {experience.map((exp, i) => (
           <div key={i} className="mt-2">
             <div className="flex justify-between mt-2 font-bold">
@@ -63,12 +63,12 @@ export default function Resume({ data}) {
 
       {/* Projects Section */}
       <section>
-        <h3 className="text-base font-bold border-y border-gray-800 py-1 mt-4">PROJECTS</h3>
+        <h3 className="text-base font-bold border-y border-gray-800 dark:border-gray-100 py-1 mt-4">PROJECTS</h3>
         {projects.map((proj, i) => (
           <div key={i} className="mt-2">
             <div className="flex justify-between mt-2 font-bold">
               <strong>
-                {proj.title} <span className="italic">– Personal Project</span>
+                {proj.title} <span className="italic"><br /> Personal Project</span>
               </strong>
               <div className="flex gap-4">
                 <a href={proj.link} target="_blank" rel="noreferrer" className="text-blue-600 hover:underline">Live Demo</a>
@@ -87,7 +87,7 @@ export default function Resume({ data}) {
 
       {/* Skills, Certifications & Interests Section */}
       <section>
-        <h3 className="text-base font-bold border-y border-gray-800 py-1 mt-4">CERTIFICATIONS, SKILLS & INTERESTS</h3>
+        <h3 className="text-base font-bold border-y border-gray-800 dark:border-gray-100 py-1 mt-4">CERTIFICATIONS, SKILLS & INTERESTS</h3>
         <ul className="mt-1 list-disc list-inside">
           <li><strong>Certifications:</strong> {certificationsSkillsInterests.certifications.join(', ')}</li>
           <li><strong>Technologies:</strong> {certificationsSkillsInterests.technologies.join(', ')}</li>
