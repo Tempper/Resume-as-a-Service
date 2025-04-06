@@ -9,7 +9,7 @@ const menuItems = [
   { label: "Settings", value: "settings", className: BUTTON_BASE_CLASSES },
 ];
 
-export default function Sidebar({ onSelect }) {
+export default function Sidebar({ onSelect, activeView }) {
   return (
     <aside className="w-56 bg-stone-400 text-white p-4 flex flex-col space-y-2">
       <h2 className="text-2xl font-bold mb-4">Dashboard</h2>
@@ -17,8 +17,8 @@ export default function Sidebar({ onSelect }) {
         <button
           key={value}
           onClick={() => onSelect(value)}
-          className={className}
-          aria-current={ariaCurrent ? "page" : undefined}
+          className={`${className} ${activeView === value ? 'bg-blue-700 ring-2 ring-blue-300' : ''}`}
+          aria-current={activeView === value ? "page" : undefined}
         >
           {label}
         </button>
