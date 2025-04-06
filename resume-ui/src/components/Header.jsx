@@ -1,8 +1,9 @@
-export default function Header({ toggleTheme }) {
+export default function Header({ activeView }) {
   return (
     <div className="header">
-      <h1>Welcome, C-Jay</h1>
-      <button className="toggle-btn" onClick={toggleTheme}> Toggle Theme</button>
+      {activeView === 'overview' && (
+      <h1 className="text-3xl font-bold mb-4">Welcome, C-Jay</h1>
+    )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Resume from './views/Resume';
+import Resume from './components/Resume';
 import Dashboard from './views/Dashboard';
 import { ThemeProvider, useTheme } from "./context/ThemeContext";
 import "./App.css";
@@ -27,7 +27,7 @@ function AppContent() {
 
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<Dashboard resume={resume} />} />
       <Route path="/resume" element={<Resume data={resume} />} />
     </Routes>
   );
